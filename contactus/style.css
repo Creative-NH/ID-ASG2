@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    border-radius: 0.4em;
+}
+.formsection{
+    margin-bottom: 10px;
+}
+table{
+    width: 100%;
+}
+table,th,td{
+    border: 1px solid black;
+}
+.row{
+    margin:5px;
+}
