@@ -106,10 +106,10 @@ $(document).ready(function () {
         //take note that we can't use += for template literal strings
         //we use ${content} because -> content += content 
         //we want to add on previous content at the same time
-        content = `${content}<tr id='${response[i]._id}'><td>${response[i].number}</td>
+        content = `${content}<tr id='${response[i]._id}'><td>${response[i].role}</td>
         <td>${response[i].name}</td>
         <td>${response[i].email}</td>
-        <td>${response[i].message}</td>
+        <td>${response[i].number}</td>
         <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
 
       }

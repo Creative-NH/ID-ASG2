@@ -32,11 +32,11 @@
             <p>I am a: </p>
             <div class="form-group">
               <label for="contact-role">Student</label>
-                <input type="radio" id="contact-role" class="form-control" required>
+                <input type="radio" id="contact-role" class="form-control" value="Student" required>
               </div>
             <div class="form-group">
               <label for="contact-role">Teacher</label>
-                <input type="radio" id="contact-role" class="form-control" required>
+                <input type="radio" id="contact-role" class="form-control" value="Teacher" required>
               </div>
             <div class="form-group">
               <label for="contact-name">Name</label>
@@ -52,8 +52,6 @@
               </div>
     
               <input type="submit" value="Send" class="btn btn-primary" id="contact-submit">
-              <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <lottie-player background="transparent" speed="1" style="width: 500px; height: 500px;" autoplay></lottie-player>
           </form>
         </div>
       </div><!-- end add container --> 
@@ -65,7 +63,7 @@
             <th>Role</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Message</th>
+            <th>Number</th>
             
           </thead>
           <!-- This will be filled with information later -->
@@ -89,7 +87,6 @@
               <div class="form-group">
               <label for="update-contact-email">Email</label>
               <input type="email" id="update-contact-email" class="form-control" required>
-               <small id="update-contact-email-help" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group">
               <label for="update-contact-number">Phone Number</label>
@@ -104,41 +101,5 @@
       </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
-        <!--<table>
-            <tr>
-              <th>Role</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-            </tr>
-            <tr class = "row">
-              <td>Student</td>
-              <td>John Doe</td>
-              <td>test@gmail.com</td>
-              <td>95438352</td>
-            </tr>
-          </table>
-        <form>
-            <div class = "formsection">
-                <p>I am a:</p>
-                <input type="radio" id="student" name="studentorteacher" value="student">
-                <label for="student">Student</label><br>
-                <input type="radio" id="teacher" name="studentorteacher" value="teacher">
-                <label for="teacher">Teacher</label><br>
-            </div>
-            <div class = "formsection">
-                <label for="name">Name: &nbsp;&nbsp;</label>
-                <input type="text" id="name" name="name"><br>
-            </div>
-            <div class = "formsection">
-                <label for="email">Email: &nbsp;&nbsp;</label>
-                <input type="email" id="email" name="email"><br>
-            </div>
-            <div class = "formsection">
-                <label for="phonenumber">Phone: &nbsp;&nbsp;</label>
-                <input type="number" id="phonenumber" name="phonenumber"><br>
-            </div>
-            <input type="submit" value="Submit" style = "width:90px">
-        </form>-->
     </body>
 </html>
