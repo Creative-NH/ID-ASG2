@@ -22,7 +22,89 @@
         </header>
         <br><br><br><br><br>
         <h1>CONTACT US</h1>
-        <table>
+        <div id="add-update-msg">
+          <div class="alert alert-success" role="alert">
+            Contact record successfully added
+          </div>
+        </div>
+        <div class="form" id="add-contact">
+          <form id="add-contact-form">
+            <p>I am a: </p>
+            <div class="form-group">
+              <label for="contact-role">Student</label>
+                <input type="radio" id="contact-role" class="form-control" required>
+              </div>
+            <div class="form-group">
+              <label for="contact-role">Teacher</label>
+                <input type="radio" id="contact-role" class="form-control" required>
+              </div>
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" class="form-control" required>
+              </div>
+              <div class="form-group">
+              <label for="contact-number">Phone Number</label>
+                <input type="text" id="contact-number" class="form-control" required>
+              </div>
+    
+              <input type="submit" value="Send" class="btn btn-primary" id="contact-submit">
+              <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player background="transparent" speed="1" style="width: 500px; height: 500px;" autoplay></lottie-player>
+          </form>
+        </div>
+      </div><!-- end add container --> 
+    
+      <div class="container mt-5">
+        <h2>Table information of Contacts (<span id="total-contacts"></span>)</h2>
+        <table class="table" id="contact-list">
+          <thead>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            
+          </thead>
+          <!-- This will be filled with information later -->
+          <tbody></tbody>
+        </table>
+      </div>
+      
+      <div class="container mt-5" id="update-contact-container"> 
+        <div id="add-update-msg">
+          <div class="alert alert-success" role="alert">
+            Contact record updated sucessfully
+          </div>
+        </div>
+        <h4>Update Contact</h4>
+        <div class="form" id="update-contact">
+          <form id="update-contact-form">
+            <div class="form-group">
+              <label for="update-contact-name">Name</label>
+              <input type="text" id="update-contact-name" class="form-control" required>
+              </div>
+              <div class="form-group">
+              <label for="update-contact-email">Email</label>
+              <input type="email" id="update-contact-email" class="form-control" required>
+               <small id="update-contact-email-help" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+              <label for="update-contact-number">Phone Number</label>
+              <textarea id="update-contact-number" class="form-control" required>
+              </textarea>
+              <input type="hidden" id="update-contact-id">
+              </div>
+    
+              <input type="submit" value="Update Contact Details" class="btn btn-warning" id="update-contact-submit">
+            </form>
+        </div>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+        <!--<table>
             <tr>
               <th>Role</th>
               <th>Name</th>
@@ -57,6 +139,6 @@
                 <input type="number" id="phonenumber" name="phonenumber"><br>
             </div>
             <input type="submit" value="Submit" style = "width:90px">
-        </form>
+        </form>-->
     </body>
 </html>
