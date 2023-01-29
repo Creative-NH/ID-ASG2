@@ -7,14 +7,14 @@ $(document).ready(function () {
   $("#add-update-msg").hide();
 
   //[STEP 1]: Create our submit form listener
-  $("#contact-submit").on("click", function (e) {
+  $("#contact-submit").on("click", function(e) {
     //prevent default action of the button 
     e.preventDefault();
     
     //[STEP 2]: let's retrieve form data
     //for now we assume all information is valid
     //you are to do your own data validation
-    let contactRole = $("#contact-role").val();
+    let contactRole = $("input[name='contact-role']:checked").val();
     let contactName = $("#contact-name").val();
     let contactEmail = $("#contact-email").val();
     let contactNum = $("#contact-number").val();
@@ -43,17 +43,17 @@ $(document).ready(function () {
       "beforeSend": function(){
         //@TODO use loading bar instead
         //disable our button or show loading bar
-        $("#contact-submit").prop( "disabled", true);
+        $("#contact-submit").prop("disabled", true);
         //clear our form using the form id and triggering it's reset feature
         $("#add-contact-form").trigger("reset");
       }
     }
 
     //[STEP 5]: Send our ajax request over to the DB and print response of the RESTDB storage to console.
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
       console.log(response);
       
-      $("#contact-submit").prop( "disabled", false);
+      $("#contact-submit").prop("disabled", false);
       
       //@TODO update frontend UI 
       $("#add-update-msg").show().fadeOut(3000);
@@ -85,7 +85,7 @@ $(document).ready(function () {
     //[STEP 8]: Make our AJAX calls
     //Once we get the response, we modify our table content by creating the content internally. We run a loop to continously add on data
     //RESTDb/NoSql always adds in a unique id for each data, we tap on it to have our data and place it into our links 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
       
       let content = "";
 
@@ -106,7 +106,8 @@ $(document).ready(function () {
         //take note that we can't use += for template literal strings
         //we use ${content} because -> content += content 
         //we want to add on previous content at the same time
-        content = `${content}<tr id='${response[i]._id}'><td>${response[i].role}</td>
+        content = `${content}<tr id='${response[i]._id}'>
+        <td>${response[i].role}</td>
         <td>${response[i].name}</td>
         <td>${response[i].email}</td>
         <td>${response[i].number}</td>
@@ -128,18 +129,15 @@ $(document).ready(function () {
   //here we tap onto our previous table when we click on update
   //this is a delegation feature of jquery
   //because our content is dynamic in nature, we listen in on the main container which is "#contact-list". For each row we have a class .update to help us
-  $("#contact-list").on("click", ".update", function (e) {
+  $("#contact-list").on("click", ".update", function(e) {
     e.preventDefault();
     //update our update form values
-    let contactRole = $(this).data("role");
     let contactName = $(this).data("name");
     let contactEmail = $(this).data("email");
     let contactNum = $(this).data("number");
     let contactId = $(this).data("id");
-    console.log($(this).data("msg"));
 
     //[STEP 11]: Load in our data from the selected row and add it to our update contact form 
-    $("#update-contact-role").val(contactRole);
     $("#update-contact-name").val(contactName);
     $("#update-contact-email").val(contactEmail);
     $("#update-contact-number").val(contactNum);
@@ -150,16 +148,15 @@ $(document).ready(function () {
 
   //[STEP 12]: Here we load in our contact form data
   //Update form listener
-  $("#update-contact-submit").on("click", function (e) {
+  $("#update-contact-submit").on("click", function(e) {
     e.preventDefault();
     //retrieve all my update form values
-    let contactRole = $("#update-contact-role").val();
+    let contactRole = $("input[name='update-contact-role']:checked").val();
     let contactName = $("#update-contact-name").val();
     let contactEmail = $("#update-contact-email").val();
     let contactNum = $("#update-contact-number").val();
     let contactId = $("#update-contact-id").val();
 
-    console.log($("#update-contact-msg").val());
 
     //[STEP 12a]: We call our update form function which makes an AJAX call to our RESTDB to update the selected information
     updateForm(contactId, contactRole, contactName, contactEmail, contactNum);
@@ -186,7 +183,7 @@ $(document).ready(function () {
     }
 
     //[STEP 13a]: send our AJAX request and hide the update contact form
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
       console.log(response);
       
       $("#update-contact-container").fadeOut(5000);
@@ -195,4 +192,24 @@ $(document).ready(function () {
     });
   }//end updateform function
 
+
+$("#contact-list").on("click", ".delete", function(e) {
+  e.preventDefault();
+  let id = $(this).data("id");
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": `https://idasg2-c017.restdb.io//rest/contact/${id}`,
+    "method": "DELETE",
+    "headers": {
+      "content-type": "application/json",
+      "x-apikey": APIKEY,
+      "cache-control": "no-cache"
+    }
+  }
+  $.ajax(settings).done(function(response) {
+    console.log(response);
+    getContacts();
+  });
+});
 })
