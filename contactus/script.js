@@ -5,6 +5,7 @@ $(document).ready(function () {
   getContacts();
   $("#update-contact-container").hide();
   $("#add-update-msg").hide();
+  $("#updated").hide();
 
   //[STEP 1]: Create our submit form listener
   $("#contact-submit").on("click", function(e) {
@@ -14,6 +15,9 @@ $(document).ready(function () {
     //[STEP 2]: let's retrieve form data
     //for now we assume all information is valid
     //you are to do your own data validation
+    if (/[0-9]/.test($("#contact-name").val())==false || /^[0-9]*$/.test($("#contact-number").val())==false || /^\d{10}$/.test($("#contact-number").val())==false){
+      console.log("Invalid")
+    }
     let contactRole = $("input[name='contact-role']:checked").val();
     let contactName = $("#contact-name").val();
     let contactEmail = $("#contact-email").val();
@@ -156,7 +160,7 @@ $(document).ready(function () {
     let contactEmail = $("#update-contact-email").val();
     let contactNum = $("#update-contact-number").val();
     let contactId = $("#update-contact-id").val();
-
+    $("#updated").show().fadeOut(5000);
 
     //[STEP 12a]: We call our update form function which makes an AJAX call to our RESTDB to update the selected information
     updateForm(contactId, contactRole, contactName, contactEmail, contactNum);

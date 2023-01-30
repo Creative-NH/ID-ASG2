@@ -1,7 +1,7 @@
 
-var a = document.querySelector(".event1")
+var a = document.querySelector(".cca")
 a.onclick = function() {togglepopup("popup1")}
-var b = document.querySelector(".event2")
+var b = document.querySelector(".event")
 b.onclick = function() {togglepopup("popup2")}
 document.getElementById("cross").onclick = function() {togglepopup("popup1")};
 document.getElementById("cross2").onclick = function() {togglepopup("popup2")};

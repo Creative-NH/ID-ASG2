@@ -1,10 +1,24 @@
+body{
+    background-color:rgb(16, 2, 55);
+    color:white;
+}
 h1{
     text-align: center;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.entry{
+    margin:15px;
 }
 form{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.form-group{
+    margin:5px;
 }
 input{
     border-radius: 0.4em;
@@ -20,4 +34,16 @@ table,th,td{
 }
 .row{
     margin:5px;
+}
+.alert-success{
+    text-align: center;
+    margin:10px;
+}
+.maincont{
+    color:black;
+    background-color: rgb(200,200,200);
+    padding:15px;
+    margin-left:15%;
+    margin-right:15%;
+    border-radius:15px;
 }
