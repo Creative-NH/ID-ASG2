@@ -1,3 +1,10 @@
+// var gradelist = {"AD":4,"A+":4,"A":4,"B+":3.5,"B":3,"C+":2.5,"C":2,"D+":1.5,"D":1}
+// var creditunits = 
+// var current = 0;
+// foreach ( in ) {
+//     current+=creditunits*gradelist[];
+// }
+// current = current/
 var current = (Math.round(3 * 100) / 100).toFixed(2);
 // Current value will be retrieved from api
 var target = localStorage.getItem('target','0');
