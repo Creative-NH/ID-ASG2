@@ -5,6 +5,8 @@
         <link rel="icon" type="image/x-icon" href="images/np.png">
         <link href="style.css" rel="stylesheet" type="text/css">
         <link href="mainstyle.css" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
         <header>
@@ -20,12 +22,34 @@
             </nav>
             <label for = "nav-toggle" class = "nav-toggle-label"><span></span></label>
         </header>
-        <!--ADD SIGN IN FUNCTION
-            https://idasg2-d588.restdb.io/rest/student
-            63db6b5c3bc6b255ed0c4574
-            https://www.youtube.com/watch?v=opGwI2UG8iA-->
-        <br><br><br><br><br>
-        <h1>HOME</h1>
+        <!--TODO
+            ADD GAME TO HOMEPAGE
+            ADD SIGN UP FUNCTION FOR EVENTS
+        -->
+        <div id="signin">
+            <video autoplay muted loop class="vidbackground">
+                <source src="videos/signinvid.mp4" type="video/mp4">
+            </video>
+            <div class="signincontent">
+                <h3>Sign In</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="student-id">Student ID </label>
+                        <input type="text" id="student-id" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password &nbsp;</label>
+                        <input type="password" id="password" required>
+                      </div>
+                      <input type="submit" value="Log In" class="btn btn-primary" id="contact-submit">
+                </form>
+                <p><span style="visibility:hidden;">.</span><span id="message">Your username or password is incorrect.</span></p>
+            </div>
+        </div>
+        <div id="maincontent">
+            <br><br><br><br><br>
+            <h1>HOME</h1>
+        </div>
         <footer>
             <div class="footercontainer">
                 <h2>Links</h2>

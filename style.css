@@ -1,0 +1,22 @@
+.vidbackground{
+    width:100%;
+    height:auto;
+}
+.signincontent{
+    position: fixed;
+    bottom: 60%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    z-index: 20;
+}
+.form-group{
+    margin-bottom:10px;
+}
+#signin{
+    display:none;
+}
+#message{
+    color:red;
+}
