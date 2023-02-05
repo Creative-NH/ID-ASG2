@@ -5,6 +5,9 @@
 //     current+=creditunits*gradelist[];
 // }
 // current = current/
+if (sessionStorage["loggedin"]!="t"){
+    window.location.href = "../index.html";
+}
 var current = (Math.round(3 * 100) / 100).toFixed(2);
 // Current value will be retrieved from api
 var target = localStorage.getItem('target','0');
@@ -56,3 +59,12 @@ $(document).ready(function () {
         $("#target").text("Target GPA: " + value);
     });
 });
+// var list = [
+//year[
+//     {
+//         "module":"",
+//         "grade":"",
+//         "credits":""
+//     }
+//    ]
+// ]

@@ -1,5 +1,8 @@
 //[STEP 0]: Make sure our document is A-OK
 $(document).ready(function () {
+  if (sessionStorage["loggedin"]!="t"){
+    $(".contactlist").hide();
+  }
   //what kind of interface we want at the start 
   const APIKEY = "63d3454c3bc6b255ed0c4348";
   getContacts();

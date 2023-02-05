@@ -1,4 +1,6 @@
-
+if (sessionStorage["loggedin"]!="t"){
+  window.location.href = "../index.html";
+}
 var a = document.querySelector(".cca")
 a.onclick = function() {togglepopup("popup1")}
 var b = document.querySelector(".event")

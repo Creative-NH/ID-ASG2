@@ -19,4 +19,5 @@
 }
 #message{
     color:red;
+    visibility: hidden;
 }
