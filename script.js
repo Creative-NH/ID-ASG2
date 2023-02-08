@@ -17,6 +17,9 @@ $(document).ready(function () {
                 $("#maincontent").show();
                 $("#signin").hide();
                 sessionStorage["loggedin"]="t";
+                sessionStorage["studentid"]=studentid;
+                sessionStorage["course"]=users["course"];
+                sessionStorage["gpa"]=users["gpa"];
             }
             else{
                 if (studentid=="" || password==""){
@@ -35,7 +38,7 @@ $(document).ready(function () {
                         $("#message").text("Your password is incorrect.");
                     }
                     else{
-                        $("#message").text("Your student ID does not exist.");
+                        $("#message").text("No account with this student ID exists.");
                     }
                 }
                 $("#message").css("visibility","visible");
@@ -59,6 +62,8 @@ $(document).ready(function () {
         $.ajax(settings).done(function(response) {
             for (var i = 0; i < response.length; i++) {
                 users[response[i].studentid]=response[i].password;
+                users["course"]=response[i].course;
+                users["gpa"]=response[i].gpa;
             }
         });
         return users;

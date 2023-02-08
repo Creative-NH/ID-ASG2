@@ -19,3 +19,15 @@
 #error{
     color:red;
 }
+input{
+    width:35px;
+}
+#tables{
+    display:flex;
+    justify-content: center;
+}
+th,td{
+    border:1px solid black;
+    padding-left:10px;
+    padding-right:10px;
+}

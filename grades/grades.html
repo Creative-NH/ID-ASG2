@@ -26,23 +26,13 @@
         <h1>ACADEMIC PERFORMANCE</h1>
         <div class="container">
             <div class = "box">
-                <!--To be done after api is set up-->
                 <h2>Module Results</h2>
-                <h4>Course:</h4>
-                <h4>Year: </h4>
-                <table>
-                    <tr>
-                        <th>Module</th>
-                        <th>Grade</th>
-                    </tr>
-                    <tr>
-                        <td>PRG1</td>
-                        <th>A</th>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                </table>
+                <h4 id="course"></h4>
+                <h4>Completed Semesters: &nbsp;<span id="years"></span></h4>
+                <label for="yearinput">Enter semester: </label>
+                <input type="text" id="yearinput" required><span>&nbsp;<button id="year">Enter</button></span>
+                <p></p>
+                <div id="tables"></div>
             </div>
             <div class = "box">
                 <h2>Grade Point Average</h2>
@@ -54,7 +44,7 @@
                 <br>
                 <div>
                     <label for="goal">Change Target GPA: </label>
-                    <input type="number" id="goal" required><span>&nbsp;<button>Submit</button></span>
+                    <input type="number" id="goal" required><span>&nbsp;<button id="gpa">Submit</button></span>
                     <p><span style="visibility: hidden;">.</span><span id="error"> &nbsp;&nbsp;&nbsp;Please enter a valid GPA.</span><span id="success"> &nbsp;&nbsp;&nbsp;Target GPA changed successfully.</span></p>
                 </div>
             </div>
