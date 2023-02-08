@@ -21,3 +21,13 @@
     color:red;
     visibility: hidden;
 }
+.box{
+    height:600px;
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    padding:30px;
+    border-radius:20px;
+    color:black;
+    background-color: rgb(200,200,200);
+}

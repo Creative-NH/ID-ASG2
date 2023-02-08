@@ -8,7 +8,6 @@ h2{
     margin:auto;
     padding-bottom:10px;
     width:80%;
-    height:670px;
 }
 .container{
     justify-content:center;
@@ -50,6 +49,18 @@ h2{
 #popup2{
     display:none;
 }
+.popuptext{
+    text-align: center;
+}
+img{
+    width:300px;
+    height:auto;
+}
+.list{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 #cross{
     color:rgb(50,50,50);
     width:7px;
@@ -82,24 +93,23 @@ h2{
 .popup{
     color:black;
     padding:10px;
+    padding-bottom:30px;
     width:40%;
     top:15%;
     left:30%;
+    border-radius: 5px;
     z-index:5;
     position:absolute;
-    background-color:white;
-}
-.video{
-    border:none;
-}
-.text{
-    font-family: 'Asul';
+    background-color:rgb(238, 251, 102);
 }
 .button{
     margin-top:20px;
     margin-bottom:20px;
     margin-left:35%;
     margin-right:35%;
+}
+th,tr{
+    padding:5px;
 }
 @media (max-width:750px){
     .popup{
