@@ -12,8 +12,12 @@ document.getElementById("overlay2").onclick = function() {togglepopup("popup2")}
 function togglepopup(id) {
     var x = document.getElementById(id);
     if (x.style.display == "none") {
+      $(".main-container").css("filter","blur(2px)");
+      $("footer").css("filter","blur(2px)")
       x.style.display = "block";
     } else {
+      $(".main-container").css("filter","none")
+      $("footer").css("filter","none")
       x.style.display = "none";
     }
   }

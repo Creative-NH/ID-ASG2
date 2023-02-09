@@ -5,9 +5,10 @@ body{
 }
 h1{
     text-align: center;
+    font-size:40px;
 }
 header{
-    background-color:rgba(230, 230, 230, 1);
+    background-color:rgba(230, 230, 230, 0.95);
     position:fixed;
     text-align:center;
     top:0;
@@ -20,7 +21,7 @@ nav{
     text-align:left;
     top:100%;
     left:0;
-    background-color:rgb(230,230,230,1);
+    background-color:rgb(230,230,230,0.95);
     width:100%;
     transform:scale(1,0);
     transform-origin:top;

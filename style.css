@@ -21,13 +21,92 @@
     color:red;
     visibility: hidden;
 }
-.box{
-    height:600px;
+.container{
+    display:flex;
+    flex-wrap:wrap;
     width:80%;
     margin-left:10%;
     margin-right:10%;
-    padding:30px;
+    padding:15px;
     border-radius:20px;
     color:black;
     background-color: rgb(200,200,200);
+}
+.panel{
+    background-color: rgb(160,160,160);
+    margin:11px;
+    padding:11px;
+}
+.panel h2{
+    text-align:center;
+}
+.announcements{
+    width:26%;
+    height:400px;
+}
+.announcement{
+    text-decoration:none;
+    color:black;
+}
+.announcement:hover{
+    text-decoration:underline;
+    font-size:16.3px;
+}
+.banner{
+    background-image: url("images/banner.png");
+    background-size: cover;
+    width:66%;
+    height:400px;
+}
+.game{
+    width:66%;
+    height:520px;
+}
+.link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:white;
+    text-shadow: 0px 0px 9px black;
+    width:100%;
+    height:145px;
+    background-size: cover;
+}
+.links{
+    display:flex;
+    flex-direction:column;
+    width:26%;
+}
+.schedule{
+    background-image:url("images/schedule.jpg");
+}
+.schedule:hover{
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0)),url("images/schedule.jpg");
+}
+.grades{
+    background-image:url("images/grades.jpeg");
+}
+.grades:hover{
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0)),url("images/grades.jpeg");
+}
+.events{
+    background-image:url("images/events2.jpg");
+}
+.events:hover{
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0)),url("images/events2.jpg");
+}
+@media (max-width:1265px){
+    .announcements{
+        height:250px;
+    }
+    .panel{
+        width:97%;
+    }
+    .links{
+        width:97%;
+    }
+    .link{
+        height:200px;
+    }
 }
