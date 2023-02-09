@@ -49,6 +49,7 @@ $(document).ready(function () {
     var correct=0;
     $("#start").click(function(){
         $("#intro").hide();
+        $(".game").css("background-image","none")
         $(".game").css("background-color","rgb(30,30,30)")
         $("#gamecontent").html(`<h3>What is the total number of clubs and societies available to NP students? (1/4)</h3><form><input type="radio" id="q1oa" name="q1" value="56" required><label for="q1oa">56</label><br><br><input type="radio" id="q1ob" name="q1" value="80" required><label for="q1ob">80</label><br><br><input type="radio" id="q1oc" name="q1" value="25" required><label for="q1oc">25</label><br><br><input type="radio" id="q1od" name="q1" value="71" required><label for="q1od">71</label><br><br><input type=submit id="submitq1" value="Enter"></form>`)
         $("#submitq1").click(function(e){
