@@ -1,11 +1,21 @@
 body{
     background-color:rgb(16, 2, 55);
     color:white;
+    font-family: 'Galdeano';
     margin:0px;
 }
 h1{
     text-align: center;
     font-size:40px;
+}
+h1,li{
+    font-family: 'Oswald';
+}
+h2,h3,h4{
+    font-family: 'Poly';
+}
+input{
+    font-family: 'Galdeano';
 }
 header{
     background-color:rgba(230, 230, 230, 0.95);
