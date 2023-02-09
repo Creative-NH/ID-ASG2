@@ -46,6 +46,70 @@ $(document).ready(function () {
             }
         })
     }
+    var correct=0;
+    $("#start").click(function(){
+        $("#intro").hide();
+        $(".game").css("background-color","rgb(30,30,30)")
+        $("#gamecontent").html(`<h3>What is the total number of clubs and societies available to NP students? (1/4)</h3><form><input type="radio" id="q1oa" name="q1" value="56" required><label for="q1oa">56</label><br><br><input type="radio" id="q1ob" name="q1" value="80" required><label for="q1ob">80</label><br><br><input type="radio" id="q1oc" name="q1" value="25" required><label for="q1oc">25</label><br><br><input type="radio" id="q1od" name="q1" value="71" required><label for="q1od">71</label><br><br><input type=submit id="submitq1" value="Enter"></form>`)
+        $("#submitq1").click(function(e){
+            e.preventDefault()
+            var ans=$("input[name='q1']:checked").val();
+            if (ans=="80"){
+                correct=correct+1
+                $("#gamecontent").html(`<br><br><p class="gametext">Correct!</p><div class="gametext" id="qn2">Next</div>`)
+            }
+            else{
+                $("#gamecontent").html(`<br><br><p class="gametext">Incorrect.</p><div class="gametext" id="qn2">Next</div>`)
+            }
+            $("#qn2").click(function(e){
+                e.preventDefault()
+                $("#gamecontent").html(`<h3>Where is Makan Place located at? (2/4)</h3><form><input type="radio" id="q2oa" name="q2" value="16" required><label for="q2oa">Block 16</label><br><br><input type="radio" id="q2ob" name="q2" value="52" required><label for="q2ob">Block 52</label><br><br><input type="radio" id="q2oc" name="q2" value="51" required><label for="q2oc">Block 51</label><br><br><input type="radio" id="q2od" name="q2" value="27" required><label for="q2od">Block 27</label><br><br><input type=submit id="submitq2" value="Enter"></form>`)
+                $("#submitq2").click(function(){
+                    var ans=$("input[name='q2']:checked").val();
+                    if (ans=="51"){
+                        correct=correct+1
+                        $("#gamecontent").html(`<br><br><p class="gametext">Correct!</p><div class="gametext" id="qn3">Next</div>`)
+                    }
+                    else{
+                        $("#gamecontent").html(`<br><br><p class="gametext">Incorrect.</p><div class="gametext" id="qn3">Next</div>`)
+                    }
+                    $("#qn3").click(function(e){
+                        e.preventDefault()
+                        $("#gamecontent").html(`<h3>How many PLP (Personalized Learning Pathway) minors can you choose from? (3/4)</h3><form><input type="radio" id="q3oa" name="q3" value="11" required><label for="q3oa">11</label><br><br><input type="radio" id="q3ob" name="q3" value="14" required><label for="q3ob">14</label><br><br><input type="radio" id="q3oc" name="q3" value="9" required><label for="q3oc">9</label><br><br><input type="radio" id="q3oc" name="q3" value="13" required><label for="q3oc">13</label><br><br><input type=submit id="submitq3" value="Enter"></form>`)
+                        $("#submitq3").click(function(){
+                            var ans=$("input[name='q3']:checked").val();
+                            if (ans=="11"){
+                                correct=correct+1
+                                $("#gamecontent").html(`<br><br><p class="gametext">Correct!</p><div class="gametext" id="qn4">Next</div>`)
+                            }
+                            else{
+                                $("#gamecontent").html(`<br><br><p class="gametext">Incorrect.</p><div class="gametext" id="qn4">Next</div>`)
+                            }
+                            $("#qn4").click(function(e){
+                                e.preventDefault()
+                                $("#gamecontent").html(`<h3>Which of the following foreign languages is not offered in NP? (4/4)</h3><form><input type="radio" id="q4oa" name="q4" value="fr" required><label for="q4oa">French</label><br><br><input type="radio" id="q4ob" name="q4" value="jp" required><label for="q4ob">Japanese</label><br><br><input type="radio" id="q4oc" name="q4" value="sp" required><label for="q4oc">Spanish</label><br><br><input type="radio" id="q4oc" name="q4" value="kr" required><label for="q4oc">Korean</label><br><br><input type=submit id="submitq4" value="Enter"></form>`)
+                                $("#submitq4").click(function(e){
+                                    e.preventDefault()
+                                    var ans=$("input[name='q4']:checked").val();
+                                    if (ans=="sp"){
+                                        correct=correct+1
+                                        $("#gamecontent").html(`<br><br><p class="gametext">Correct!</p><div class="gametext" id="result">Show results</div>`)
+                                    }
+                                    else{
+                                        $("#gamecontent").html(`<br><br><p class="gametext">Incorrect.</p><div class="gametext" id="result">Show results</div>`)
+                                    }
+                                    $("#result").click(function(){
+                                        $("#gamecontent").html(`<br><br><p class="gametext">You got ${correct} out of 4 answers right!<br>Thank you for playing!</p>`)
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+        
+    })
     function getUsers(){
         let settings = {
             "async": true,
