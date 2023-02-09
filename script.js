@@ -1,6 +1,6 @@
 var loggedin = sessionStorage["loggedin"];
 $(document).ready(function () {
-    const APIKEY = "63db6b5c3bc6b255ed0c4574";
+    const APIKEY = "63e4ce24478852088da67f20";
     let users = getUsers();
     if (loggedin!="t"){
         $("body").css("background-color","black")
@@ -114,7 +114,7 @@ $(document).ready(function () {
         let settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://idasg2-d588.restdb.io/rest/student",
+            "url": "https://idasg2-81cd.restdb.io/rest/student",
             "method": "GET",
             "headers": {
               "content-type": "application/json",
