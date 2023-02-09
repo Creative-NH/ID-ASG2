@@ -5,7 +5,7 @@ $(document).ready(function () {
   }
   //what kind of interface we want at the start 
   const APIKEY = "63d3454c3bc6b255ed0c4348";
-  getContacts();
+  getContacts(false,"");
   $("#update-contact-container").hide();
   $("#add-update-msg").hide();
   $("#updated").hide();
@@ -18,9 +18,11 @@ $(document).ready(function () {
     //[STEP 2]: let's retrieve form data
     //for now we assume all information is valid
     //you are to do your own data validation
-    if (/[0-9]/.test($("#contact-name").val())==false || /^[0-9]*$/.test($("#contact-number").val())==false || /^\d{10}$/.test($("#contact-number").val())==false){
-      console.log("Invalid")
+    if (/[0-9]+/.test($("#contact-name").val()) || /[A-z]+/.test($("#contact-number").val()) || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test($("#contact-email").val())){
+      $("#error").show();
     }
+    else{
+    $("#error").hide();
     let contactRole = $("input[name='contact-role']:checked").val();
     let contactName = $("#contact-name").val();
     let contactEmail = $("#contact-email").val();
@@ -66,15 +68,16 @@ $(document).ready(function () {
       $("#add-update-msg").show().fadeOut(3000);
 
       //update our table 
-      getContacts();
+      getContacts(false,"");
     });
+    }
   });//end click 
 
 
   //[STEP] 6
   //let's create a function to allow you to retrieve all the information in your contacts
   //by default we only retrieve 10 results
-  function getContacts(limit = 10, all = true) {
+  function getContacts(search,searchterm,limit = 10, all = true) {
 
     //[STEP 7]: Create our AJAX settings
     let settings = {
@@ -95,7 +98,7 @@ $(document).ready(function () {
     $.ajax(settings).done(function(response) {
       
       let content = "";
-
+      if (search==false){
       for (var i = 0; i < response.length && i < limit; i++) {
         //console.log(response[i]);
         //[METHOD 1]
@@ -120,6 +123,19 @@ $(document).ready(function () {
         <td>${response[i].number}</td>
         <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
 
+      }
+      }
+      else{
+        for (var i = 0; i < response.length && i < limit; i++) {
+          if (response[i].name.includes(searchterm)){
+          content = `${content}<tr id='${response[i]._id}'>
+        <td>${response[i].role}</td>
+        <td>${response[i].name}</td>
+        <td>${response[i].email}</td>
+        <td>${response[i].number}</td>
+        <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
+          }
+        }
       }
 
       //[STEP 9]: Update our HTML content
@@ -195,7 +211,7 @@ $(document).ready(function () {
       
       $("#update-contact-container").fadeOut(5000);
       //update our contacts table
-      getContacts();
+      getContacts(false,"");
     });
   }//end updateform function
 
@@ -216,7 +232,11 @@ $("#contact-list").on("click", ".delete", function(e) {
   }
   $.ajax(settings).done(function(response) {
     console.log(response);
-    getContacts();
+    getContacts(false,"");
   });
 });
+$("#searchsubmit").click(function(){
+  let searchterm=$("#search").val();
+  getContacts(true,searchterm);
+})
 })

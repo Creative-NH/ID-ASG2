@@ -21,6 +21,12 @@ input{
 .formsection{
     margin-bottom: 10px;
 }
+#error{
+    color:red;
+    margin:7px;
+    display: none;
+    text-align: center;
+}
 table{
     width: 100%;
 }
