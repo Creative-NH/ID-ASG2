@@ -76,14 +76,14 @@
             <input type="submit" value="Send" class="btn btn-primary" id="contact-submit">
           </form>
         </div><!-- end add container --> 
-        <div id="error">Invalid particulars.</div>
+        <div class="error" id="error">Invalid particulars.</div>
         <div id="add-update-msg">
           <div class="alert alert-success" role="alert">
             Contact record successfully added
           </div>
         </div>
       <div class="container mt-5">
-        <h2>Table information of Contacts (<span id="total-contacts"></span>)</h2>
+        <h2>Table of Contacts (<span id="total-contacts"></span>)</h2>
         <p>Search by Name &nbsp;<span><input type="text" id="search" required>&nbsp;<button id="searchsubmit">Search</button></span></p>
         <table class="table" id="contact-list">
           <thead>
@@ -126,6 +126,7 @@
             <input type="submit" value="Update Contact Details" class="btn btn-warning" id="update-contact-submit">
           </form>
         </div>
+        <div class="error" id="updateerror">Invalid particulars.</div>
       </div>
       <div id="updated">
         <div class="alert alert-success" role="alert">
