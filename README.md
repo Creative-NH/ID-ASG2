@@ -8,8 +8,8 @@ However, this project is not merely an overhaul of NPal - it combines features f
 
 https://creative-nh.github.io/ID-ASG2/
 
-User ID: s116
-Password: qwerty
+- User ID: s1216
+- Password: qwerty
 
 ## Design Process
 
