@@ -4,15 +4,21 @@ This project aims to create a web app that displays relevant information on stud
 We have found that the existing student companion app, NPal, is lacking in clarity and organization. For example, some of its crucial features tend to be hidden in obscure sections of pages.
 However, this project is not merely an overhaul of NPal - it combines features from NPal and information from the official Ngee Ann Website, so as to allow students access to the content they might use on a day-to-day basis on a single site.
  
+## NOTE
+
+https://creative-nh.github.io/ID-ASG2/
+
+User ID: s116
+Password: qwerty
 
 ## Design Process
 
-As a NP Student, in order to stay updated on recent happenings, I want to be able to view important, school-related news and announcements.
-As a NP Student, I want to be able to easily obtain the contact information of my classmates so that I can communicate with them.
-As a NP Student, I want to keep track of the progress of my academic pursuits by being able to conveniently view my grades and set goal for my GPA.
-As a NP Student, so as to avoid missing anything, I want to be able to conveniently view my class, common test and exam timetables.
-As a NP Student, in order to be more active on campus, I want to obtain information on clubs and events on campus.
-As a NP Freshman, I want to learn more about the polytechnic.
+- As a NP Student, in order to stay updated on recent happenings, I want to be able to view important, school-related news and announcements.
+- As a NP Student, I want to be able to easily obtain the contact information of my classmates so that I can communicate with them.
+- As a NP Student, I want to keep track of the progress of my academic pursuits by being able to conveniently view my grades and set goal for my GPA.
+- As a NP Student, so as to avoid missing anything, I want to be able to conveniently view my class, common test and exam timetables.
+- As a NP Student, in order to be more active on campus, I want to obtain information on clubs and events on campus.
+- As a NP Freshman, I want to learn more about the polytechnic.
 
 ### Wireframe
 https://xd.adobe.com/view/ae2ee4ac-718b-4e58-8a3b-9aa086314054-fb7d/
@@ -125,8 +131,5 @@ https://xd.adobe.com/view/ae2ee4ac-718b-4e58-8a3b-9aa086314054-fb7d/
     - https://www.np.edu.sg
     - https://portal2.np.edu.sg
 
-- The banner used in the homepage was a recreation of the banner of the [NP Student Portal](https://portal2.np.edu.sg)  
+- The banner used in the homepage was a recreation of the banner of the [NP Student Portal](https://portal2.np.edu.sg). 
 - The clip used for the sign-in section was taken from [this promotional video](https://www.youtube.com/watch?v=opGwI2UG8iA).
-### Acknowledgements
-
-- 
