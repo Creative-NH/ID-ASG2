@@ -124,10 +124,13 @@ $(document).ready(function () {
         <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
 
       }
+      $("#total-contacts").html(response.length);
       }
       else{
+        var numresults = 0
         for (var i = 0; i < response.length && i < limit; i++) {
           if (response[i].name.includes(searchterm)){
+            numresults=numresults+1;
           content = `${content}<tr id='${response[i]._id}'>
         <td>${response[i].role}</td>
         <td>${response[i].name}</td>
@@ -136,13 +139,14 @@ $(document).ready(function () {
         <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
           }
         }
+        $("#total-contacts").html(numresults);
       }
 
       //[STEP 9]: Update our HTML content
       //let's dump the content into our table body
       $("#contact-list tbody").html(content);
 
-      $("#total-contacts").html(response.length);
+      
     });
 
 
@@ -174,6 +178,11 @@ $(document).ready(function () {
   $("#update-contact-submit").on("click", function(e) {
     e.preventDefault();
     //retrieve all my update form values
+    if (/[0-9]+/.test($("#update-contact-name").val()) || /[A-z]+/.test($("#update-contact-number").val()) || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test($("#update-contact-email").val())){
+      $("#updateerror").show();
+    }
+    else{
+    $("#updateerror").hide();
     let contactRole = $("input[name='update-contact-role']:checked").val();
     let contactName = $("#update-contact-name").val();
     let contactEmail = $("#update-contact-email").val();
@@ -183,6 +192,7 @@ $(document).ready(function () {
 
     //[STEP 12a]: We call our update form function which makes an AJAX call to our RESTDB to update the selected information
     updateForm(contactId, contactRole, contactName, contactEmail, contactNum);
+    }
   });//end updatecontactform listener
 
   //[STEP 13]: function that makes an AJAX call and process it 
