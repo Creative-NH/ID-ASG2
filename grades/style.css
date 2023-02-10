@@ -19,6 +19,9 @@
 #error{
     color:red;
 }
+#retrievalerror{
+    color:red;
+}
 input{
     width:35px;
 }

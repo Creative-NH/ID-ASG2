@@ -3,7 +3,9 @@ $(document).ready(function () {
   if (sessionStorage["loggedin"]!="t"){
     $(".contactlist").hide();
   }
+  else{
   //what kind of interface we want at the start 
+  var SID=sessionStorage["studentid"]
   const APIKEY = "63d3454c3bc6b255ed0c4348";
   getContacts(false,"");
   $("#update-contact-container").hide();
@@ -19,18 +21,17 @@ $(document).ready(function () {
     //for now we assume all information is valid
     //you are to do your own data validation
     if (/[0-9]+/.test($("#contact-name").val()) || /[A-z]+/.test($("#contact-number").val()) || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test($("#contact-email").val())){
-      $("#error").show();
+      $("#error").show().fadeOut(5000);
     }
     else{
-    $("#error").hide();
-    let contactRole = $("input[name='contact-role']:checked").val();
+    let studentID = SID;
     let contactName = $("#contact-name").val();
     let contactEmail = $("#contact-email").val();
     let contactNum = $("#contact-number").val();
     //[STEP 3]: get form values when user clicks on send
     //Adapted from restdb api
     let jsondata = {
-      "role": contactRole,
+      "studentid": studentID,
       "name": contactName,
       "email": contactEmail,
       "number": contactNum,
@@ -117,11 +118,11 @@ $(document).ready(function () {
         //we use ${content} because -> content += content 
         //we want to add on previous content at the same time
         content = `${content}<tr id='${response[i]._id}'>
-        <td>${response[i].role}</td>
+        <td>${response[i].studentid}</td>
         <td>${response[i].name}</td>
         <td>${response[i].email}</td>
         <td>${response[i].number}</td>
-        <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
+        <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-studentid='${response[i].studentid}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
 
       }
       $("#total-contacts").html(response.length);
@@ -132,11 +133,11 @@ $(document).ready(function () {
           if (response[i].name.includes(searchterm)){
             numresults=numresults+1;
           content = `${content}<tr id='${response[i]._id}'>
-        <td>${response[i].role}</td>
+        <td>${response[i].studentid}</td>
         <td>${response[i].name}</td>
         <td>${response[i].email}</td>
         <td>${response[i].number}</td>
-        <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-role='${response[i].role}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
+        <td><a href='#' class='delete' data-id='${response[i]._id}'>Del</a></td><td><a href='#update-contact-container' class='update' data-id='${response[i]._id}' data-studentid='${response[i].studentid}' data-name='${response[i].name}' data-email='${response[i].email}' data-number='${response[i].number}'>Update</a></td></tr>`;
           }
         }
         $("#total-contacts").html(numresults);
@@ -158,6 +159,7 @@ $(document).ready(function () {
   //because our content is dynamic in nature, we listen in on the main container which is "#contact-list". For each row we have a class .update to help us
   $("#contact-list").on("click", ".update", function(e) {
     e.preventDefault();
+    if ($(this).data("studentid")==SID){
     //update our update form values
     let contactName = $(this).data("name");
     let contactEmail = $(this).data("email");
@@ -170,7 +172,10 @@ $(document).ready(function () {
     $("#update-contact-number").val(contactNum);
     $("#update-contact-id").val(contactId);
     $("#update-contact-container").show();
-
+    }
+    else{
+      $("#wrongid").show().fadeOut(5000);
+    }
   });//end contact-list listener for update function
 
   //[STEP 12]: Here we load in our contact form data
@@ -179,11 +184,10 @@ $(document).ready(function () {
     e.preventDefault();
     //retrieve all my update form values
     if (/[0-9]+/.test($("#update-contact-name").val()) || /[A-z]+/.test($("#update-contact-number").val()) || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test($("#update-contact-email").val())){
-      $("#updateerror").show();
+      $("#updateerror").show().fadeOut(5000);
     }
     else{
-    $("#updateerror").hide();
-    let contactRole = $("input[name='update-contact-role']:checked").val();
+    let studentID = SID;
     let contactName = $("#update-contact-name").val();
     let contactEmail = $("#update-contact-email").val();
     let contactNum = $("#update-contact-number").val();
@@ -191,16 +195,16 @@ $(document).ready(function () {
     $("#updated").show().fadeOut(5000);
 
     //[STEP 12a]: We call our update form function which makes an AJAX call to our RESTDB to update the selected information
-    updateForm(contactId, contactRole, contactName, contactEmail, contactNum);
+    updateForm(contactId, studentID, contactName, contactEmail, contactNum);
     }
   });//end updatecontactform listener
 
   //[STEP 13]: function that makes an AJAX call and process it 
   //UPDATE Based on the ID chosen
-  function updateForm(id, contactRole, contactName, contactEmail, contactNum) {
+  function updateForm(id, studentID, contactName, contactEmail, contactNum) {
     //@TODO create validation methods for id etc. 
 
-    var jsondata = { "role": contactRole, "name": contactName, "email": contactEmail, "number": contactNum};
+    var jsondata = { "studentid": studentID, "name": contactName, "email": contactEmail, "number": contactNum};
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -248,5 +252,5 @@ $("#contact-list").on("click", ".delete", function(e) {
 $("#searchsubmit").click(function(){
   let searchterm=$("#search").val();
   getContacts(true,searchterm);
-})
+})}
 })

@@ -14,6 +14,7 @@ $(document).ready(function () {
     function hideFormMessages(){
         $("#error").hide();
         $("#success").hide();
+        $("#retrievalerror").hide();
     }
     function determineMessage(){
         if (current>=target){
@@ -65,10 +66,13 @@ $(document).ready(function () {
               "cache-control": "no-cache"
             },
         }
+        
         $.ajax(settings).done(function(response) {
+            var success=0
             let content = ``;
             for (var i = 0; i < response.length; i++) {
                 if (response[i].studentid==studentid && response[i].year==year){
+                    success=success+1
                     content=`${content}<table><tr><th>Module</th><th>Grade</th></tr>`;
                     if (response[i].module1!=""){
                         content=`${content}<tr><td>${response[i].module1.split(",")[0]}</td><td>${response[i].module1.split(",")[1]}</td></tr>`;
@@ -97,7 +101,10 @@ $(document).ready(function () {
                 }
             }
             $("#tables").html(content);
+            if (success==0){$("#retrievalerror").show()}
+            else{$("#retrievalerror").hide()}
         });
+        
     }
     displayYears();
     $("#course").text("Course: " + course);

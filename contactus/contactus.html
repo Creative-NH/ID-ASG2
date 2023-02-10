@@ -51,16 +51,9 @@
         </div>
         <br>
         <div class = "box contactlist">
-          <h2 style="text-align: center;">Student/Lecturer Contact List</h2>
+          <h2 style="text-align: center;">Student Contact List</h2>
         <div class="form" id="add-contact">
           <form id="add-contact-form">
-            <p>I am a: </p>
-            <div class="form-group">
-              <input type="radio" id="contact-student" name="contact-role" value="Student" required>
-              <label for="contact-student">Student</label>
-              <input type="radio" id="contact-lecturer" name="contact-role" value="Lecturer" required>
-              <label for="contact-lecturer">Lecturer</label>
-            </div>
             <div class="form-group">
               <label for="contact-name">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <input type="text" id="contact-name" required>
@@ -88,7 +81,7 @@
         <table class="table" id="contact-list">
           <thead>
             <tr>
-            <th>Role</th>
+            <th>Student ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Number</th>
@@ -100,16 +93,11 @@
         </table>
       </div>
       <br>
+      <div class="error" id="wrongid">You cannot update someone else's contact!</div>
       <div class="container mt-5" id="update-contact-container"> 
         <h4 style = "text-align: center;">Update Contact</h4>
         <div class="form" id="update-contact">
           <form id="update-contact-form">
-            <div class="form-group">
-              <input type="radio" id="update-contact-student" name="update-contact-role" value="Student" required>
-              <label for="update-contact-student">Student</label>
-              <input type="radio" id="update-contact-lecturer" name="update-contact-role" value="Lecturer" required>
-              <label for="update-contact-lecturer">Lecturer</label>
-            </div>
             <div class="form-group">
               <label for="update-contact-name">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <input type="text" id="update-contact-name" required>
@@ -145,9 +133,9 @@
         <div class="footercontainer">
             <h2>Connect with us</h2>
             <div style="display:flex">
-              <a href="https://www.facebook.com/ngeeannpoly/" target="_blank"><img class="icon" src="../images/fb.png"></a>
-              <a href="https://www.youtube.com/channel/UCIhzgEkhf4kFLU7mgIhSxOg" target="_blank"><img class="icon" src="../images/yt.png"></a>
-              <a href="https://www.instagram.com/ngeeannpoly" target="_blank"><img class="icon" src="../images/ig.png"></a>
+              <a href="https://www.facebook.com/ngeeannpoly/" target="_blank"><img class="icon" src="../images/fb.png" alt="Facebook"></a>
+              <a href="https://www.youtube.com/channel/UCIhzgEkhf4kFLU7mgIhSxOg" target="_blank"><img class="icon" src="../images/yt.png" alt="YouTube"></a>
+              <a href="https://www.instagram.com/ngeeannpoly" target="_blank"><img class="icon" src="../images/ig.png" alt="Instagram"></a>
             </div>
         </div>
     </footer>
