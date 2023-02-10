@@ -39,7 +39,7 @@ https://xd.adobe.com/view/ae2ee4ac-718b-4e58-8a3b-9aa086314054-fb7d/
 - Links to Other Pages - Clearly displays important features to students.
 
 #### Schedule
-- Timetables - Displays timetables to users so as to help them stay on track.
+- Timetables - Displays timetables to users so as to help them stay on track which includes the class timetable, common-test and exam timetables.
 
 #### Grades
 - Module Results - Displays the module grades of students from each semester, assisting them with staying focused on their goals.
@@ -107,7 +107,7 @@ https://xd.adobe.com/view/ae2ee4ac-718b-4e58-8a3b-9aa086314054-fb7d/
     - The Events page contains two boxes displayed horizontally, labeled 'CCAs' and 'Events', which pop up slightly when hovered upon. When clicked on, they display their respective information in a popup. On mobile, the boxes are displayed vertically instead.
 
 - Schedule
-    - 
+    - The Schedule page contains three boxes displayed horizontally, labeled 'Class Timetable', 'CT Timetable' and 'Exam Timetable', which pop up slightly when hovered upon. When clicked on, they display the respective timetables in a popup. On mobile, the boxes are displayed vertically instead.
 
 - Contact Us
     - The Contact Us page contains two panels. The top panel contains a list of emergency contacts. The bottom panel contains a table of student contacts, a form and a search bar. Users can use the search bar to look for specific entries in the table, or use the form to input an entry of their own. Users can edit their entries using the 'Delete' and 'Update' buttons in each table entry. The mobile version of this page is identical to the desktop page. 
