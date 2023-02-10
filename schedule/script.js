@@ -1,12 +1,12 @@
 if (sessionStorage["loggedin"]!="t"){
     window.location.href = "../index.html";
 }
-var a = document.querySelector(".classtimetable")
+var a = document.querySelector(".class")
 a.onclick = function() {togglepopup("popup1")}
-var b = document.querySelector(".cttimetable")
+var b = document.querySelector(".commontest")
 b.onclick = function() {togglepopup("popup2")}
-var c = document.querySelector(".examtimetable")
-b.onclick = function() {togglepopup("popup3")}
+var c = document.querySelector(".exam")
+c.onclick = function() {togglepopup("popup3")}
 document.getElementById("cross").onclick = function() {togglepopup("popup1")};
 document.getElementById("cross2").onclick = function() {togglepopup("popup2")};
 document.getElementById("cross3").onclick = function() {togglepopup("popup3")};
