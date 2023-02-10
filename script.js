@@ -46,6 +46,11 @@ $(document).ready(function () {
             }
         })
     }
+    var cor = `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_9aa9jkxv.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player>`
+    var inc = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pqpmxbxp.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player>`
+    var end1 = `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_touohxv0.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player>`
+    var end2 = `<lottie-player src="https://assets9.lottiefiles.com/packages/lf20_g9gACcXlja.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player>`
+    var end3 = `<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5e4papxe.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player>`
     var correct=0;
     $("#start").click(function(){
         $("#intro").hide();
@@ -57,10 +62,10 @@ $(document).ready(function () {
             var ans=$("input[name='q1']:checked").val();
             if (ans=="80"){
                 correct=correct+1
-                $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_9aa9jkxv.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="qn2">Next</div></div>`)
+                $("#gamecontent").html(`<div class="gamemsgcontainer">${cor}<div class="gametext" id="qn2">Next</div></div>`)
             }
             else{
-                $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pqpmxbxp.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="qn2">Next</div></div>`)
+                $("#gamecontent").html(`<div class="gamemsgcontainer">${inc}<div class="gametext" id="qn2">Next</div></div>`)
             }
             $("#qn2").click(function(e){
                 e.preventDefault()
@@ -69,10 +74,10 @@ $(document).ready(function () {
                     var ans=$("input[name='q2']:checked").val();
                     if (ans=="51"){
                         correct=correct+1
-                        $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_9aa9jkxv.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="qn3">Next</div></div>`)
+                        $("#gamecontent").html(`<div class="gamemsgcontainer">${cor}<div class="gametext" id="qn3">Next</div></div>`)
                     }
                     else{
-                        $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pqpmxbxp.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="qn3">Next</div></div>`)
+                        $("#gamecontent").html(`<div class="gamemsgcontainer">${inc}<div class="gametext" id="qn3">Next</div></div>`)
                     }
                     $("#qn3").click(function(e){
                         e.preventDefault()
@@ -81,10 +86,10 @@ $(document).ready(function () {
                             var ans=$("input[name='q3']:checked").val();
                             if (ans=="11"){
                                 correct=correct+1
-                                $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_9aa9jkxv.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="qn4">Next</div></div>`)
+                                $("#gamecontent").html(`<div class="gamemsgcontainer">${cor}<div class="gametext" id="qn4">Next</div></div>`)
                             }
                             else{
-                                $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pqpmxbxp.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="qn4">Next</div></div>`)
+                                $("#gamecontent").html(`<div class="gamemsgcontainer">${inc}<div class="gametext" id="qn4">Next</div></div>`)
                             }
                             $("#qn4").click(function(e){
                                 e.preventDefault()
@@ -94,21 +99,23 @@ $(document).ready(function () {
                                     var ans=$("input[name='q4']:checked").val();
                                     if (ans=="sp"){
                                         correct=correct+1
-                                        $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_9aa9jkxv.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="result">Show results</div></div>`)
+                                        $("#gamecontent").html(`<div class="gamemsgcontainer">${cor}<div class="gametext" id="result">Show results</div></div>`)
                                     }
                                     else{
-                                        $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets3.lottiefiles.com/packages/lf20_pqpmxbxp.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><div class="gametext" id="result">Show results</div></div>`)
+                                        $("#gamecontent").html(`<div class="gamemsgcontainer">${inc}<div class="gametext" id="result">Show results</div></div>`)
                                     }
                                     $("#result").click(function(){
+                                        var end = ``
                                         if (correct==4){
-                                            $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_touohxv0.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><p class="gametext end">You got ${correct} out of 4 answers right!<br>Thank you for playing!</p></div>`)
+                                            end=end1
                                         }
                                         else if (correct>1){
-                                            $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets9.lottiefiles.com/packages/lf20_g9gACcXlja.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><p class="gametext end">You got ${correct} out of 4 answers right!<br>Thank you for playing!</p></div>`)
+                                            end=end2
                                         }
                                         else{
-                                            $("#gamecontent").html(`<div class="gamemsgcontainer"><lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5e4papxe.json" background="transparent" speed="1" style="width: 50%; height: 50%;" autoplay></lottie-player><p class="gametext end">You got ${correct} out of 4 answers right.<br>Thank you for playing!</p></div>`)
+                                            end=end3
                                         }
+                                        $("#gamecontent").html(`<div class="gamemsgcontainer">${end}<p class="gametext end">You got ${correct} out of 4 answers right.<br>Thank you for playing!</p></div>`)
                                     })
                                 })
                             })
@@ -116,8 +123,7 @@ $(document).ready(function () {
                     })
                 })
             })
-        })
-        
+        })  
     })
     function getUsers(){
         let settings = {
