@@ -25,14 +25,15 @@ h2{
     border-color:grey;
     border-radius: 25px;
     background-size: cover;
-    height:450px;
-    width:450px;
+    height:300px;
+    width:300px;
     margin:30px;
+    margin-bottom:80px;
     padding:5px;
 }
 .box:hover{
-    height:455px;
-    width:455px;
+    height:305px;
+    width:305px;
     margin:25px;
     margin-left:27px;
     margin-right:27px;
